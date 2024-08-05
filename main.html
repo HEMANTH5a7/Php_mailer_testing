@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="career.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+    <!-- fonts links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind&display=swap" rel="stylesheet">
+    <link rel="icon" href="./images1/GCD.png" type="image/x-icon">
+    <!-- fonts links -->
+    <style>
+        .background-container {
+          background-image: url('./images1/GCDbackground.png');
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          width: auto;
+          height: auto;
+          /* position: fixed;  */
+          top: 0;
+          left: 0;
+          z-index: -1;
+        }
+        
+        
+        .content-wrapper {
+          position: relative;
+          z-index: 1;
+          min-height: 100vh;
+        }
+        .radio-inline input[type="radio"]:checked + label {
+    color: gold !important;
+    font-weight: bold !important;
+    /* Add more styles as needed */
+}
+
+        </style>
+   
+</head>
+
+<body style="background-color: black;">
+    
+   
+    <div class="sale-bar h6"> <h6>call us to become our customer <a href="tel:+1 413-557-0135" style="color: white; text-decoration: none;">+1 413-557-0135</a></h6></div>
+    <div class="background-container">
+        <div class="content-wrapper">
+ 
+     <!-- navbar -->
+  
+    <!-- navbar -->
+    
+
+
+    <!-- <div class="ellipse-container">
+        <div class="ellipse-div top-left"></div>
+        <div class="ellipse-div bottom-right"></div>
+        <div class="ellipse-div bottom-left"></div>
+       <div class="ellipse-div bottom-right-2"></div>
+      -->
+
+
+        <div class="container-fluid text-white">  
+            <div class="row row-cust mt-5">
+                
+            </div>
+
+            <div class="row row-cust mb-4 no-gutters second-row">
+                <div class="col-md-12 d-flex align-items-center px-md-3">
+                    <div class="contact-form w-100">
+                        <h2 class="mb-4">Become a Golden City Hero?</h2><h5>Please fill the form below </h5>
+                        <form id="contactForm" method="post" action="career_mailer.php" name="google-sheet">
+                            <div class="form-group">
+                                <input type="text" name="Name" class="form-control" id="fullName"
+                                    placeholder="Your Full Name*" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" class="form-control" id="email"
+                                    placeholder="Your Email Id*" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" name="Mobile" class="form-control" id="mobile"
+                                    placeholder="Mobile Number*" required onfocus="showAlert()">
+                                <div id="phoneFormatAlert" style="display:none; color:#ccc;">Format: +91 XXXXXXXXXX or +852
+                                    1234 5678 or +1-555-555-5555</div>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" name="Address" id="message" rows="3"
+                                    placeholder="Address*" required
+                                    title="Address should not exceed 200 words"></textarea>
+                            </div>
+                            <div class="form-group align-items-start">
+
+                                <label for="position" class="mr-2 mt-2">Select Position Interested</label>
+                                <select class="form-control custom-dropdown" name="Position" id="position" required style="max-width: 200px;">
+                                    <option value="" selected disabled>Select Position</option>
+                                    <option value="Warehouse">Warehouse</option>
+                                    <option value="Sales">Sales</option>
+                                    <option value="Delivery">Delivery</option>
+                                    <option value="Manager">Manager</option>
+                                </select>                              
+                        </div>
+                        <div class="form-group mt-3">
+                            <label class="mr-2 mt-2">Do you have relevant experience?</label><br/>
+                            <label class="radio-inline mr-2">
+                                <input type="radio" name="experience" id="expYes" value="yes"> Yes
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="experience" id="expNo" value="no"> No
+                            </label>
+                        </div>
+                        
+                        <div class="form-group mt-3" id="yearsExperience" style="display: none;">
+                            <label for="years" class="mr-2 mt-2">Please tell us about your experience?</label>
+                            <input type="text" class="form-control" id="years" name="years" placeholder="About your Experience">
+                        </div>
+                        
+                            <button type="submit" name="career_submit" class="btn btn-warning">SEND MESSAGE</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+   <!--  </div> -->
+</div>
+</div>
+<!-- footer -->
+
+ <!-- footer -->
+    
+   <!-- navbar script -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+ 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" ></script>-->
+
+    
+
+    <script>
+       const scriptURL = 'https://script.google.com/macros/s/AKfycbwG8qZtQPxt9E4Bcxyk3W8P6fRlWoeAFnLbDdbaaw6THvbn9xYZZR9w2e92lT4-pmCGDg/exec';
+const form = document.forms['google-sheet'];
+// Wait for the document to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Select the radio buttons
+    const expYes = document.getElementById('expYes');
+    const expNo = document.getElementById('expNo');
+    const yearsExperience = document.getElementById('yearsExperience');
+
+    // Function to toggle visibility of years of experience based on radio button selection
+    function toggleYearsInput() {
+        if (expYes.checked) {
+            yearsExperience.style.display = 'block'; // Show the input field
+        } else {
+            yearsExperience.style.display = 'none'; // Hide the input field
+        }
+    }
+
+    // Initial call to set initial state based on radio button checked status
+    toggleYearsInput();
+
+    // Add event listeners to radio buttons to toggle input visibility
+    expYes.addEventListener('change', toggleYearsInput);
+    expNo.addEventListener('change', toggleYearsInput);
+});
+// JavaScript to handle form submission
+$(document).ready(function() {
+    $('#contactForm').submit(function(e) {
+        e.preventDefault(); // Prevent form submission
+
+        // Validate form fields (as before)
+
+        // If form is valid, prepare data for AJAX
+        var formData = {
+            fullName: $('#fullName').val().trim(),
+            email: $('#email').val().trim(),
+            phone: $('#mobile').val().trim(),
+            message: $('#message').val().trim(),
+            position: $('#position').val(),
+            experience: $('input[name="experience"]:checked').val(),
+            years: $('#years').val().trim()
+        };
+
+        // Send data to PHP script using AJAX
+        $.ajax({
+            type: 'POST',
+            url: 'career_mailer.php',
+            data: formData,
+            success: function(response) {
+                // Reset form after successful submission
+                $('#contactForm')[0].reset();
+                alert(response);
+            },
+            error: function(error) {
+                alert('Sorry, your message could not be sent. Please try again later.');
+            }
+        });
+    });
+});
+
+function showAlert() {
+    document.getElementById('phoneFormatAlert').style.display = 'block';
+}
+
+
+        
+
+    </script>
+     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+</body>
+
+</html>
+
+
