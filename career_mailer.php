@@ -5,7 +5,7 @@ ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
 // Initialize variables
-$resumePath = ''; // Path to resume file if uploaded
+$resume = ''; // Make sure $resume is initialized
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $data = json_decode(file_get_contents("php://input"), true);
@@ -23,29 +23,17 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $message = isset($data['address']) ? htmlspecialchars($data['address']) : 'Not provided';
     $position = isset($data['position']) ? htmlspecialchars($data['position']) : 'Not provided';
     $experience = isset($data['experience']) ? htmlspecialchars($data['experience']) : 'Not provided';
-    $years = htmlspecialchars($data['years']);
+    $years = isset($data['years']) ? htmlspecialchars($data['years']) : 'Not provided';
     $years = empty($years) ? "None" : $years;
-
-    // Handle file upload
-    if (isset($_FILES['resume']) && $_FILES['resume']['error'] === UPLOAD_ERR_OK) {
-        $resumePath = $_FILES['resume']['tmp_name'];
-        $resumeName = $_FILES['resume']['name'];
-        $resumeType = $_FILES['resume']['type'];
-    } else {
-        $resumePath = '';
-    }
 
     // Prepare email
     $to = $email;
     $subject = 'New Career Form Submission';
     $headers = "From: no-reply@yourdomain.com\r\n";
     $headers .= "Reply-To: no-reply@yourdomain.com\r\n";
-    $headers .= "Content-Type: multipart/mixed; boundary=\"boundary1\"\r\n";
+    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
     $body = "
-        --boundary1
-        Content-Type: text/html; charset=UTF-8
-
         <h3>Career Form Submission:</h3>
         <p><strong>Name:</strong> $fullName</p>
         <p><strong>Email:</strong> $email</p>
@@ -54,14 +42,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         <p><strong>Position:</strong> $position</p>
         <p><strong>Experience:</strong> $experience</p>
         <p><strong>Years of Experience:</strong> $years</p>
-
-        --boundary1
-        Content-Type: $resumeType; name=\"$resumeName\"
-        Content-Transfer-Encoding: base64
-        Content-Disposition: attachment; filename=\"$resumeName\"
-
-        " . chunk_split(base64_encode(file_get_contents($resumePath))) . "
-        --boundary1--
     ";
 
     // Send email
