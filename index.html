@@ -63,10 +63,11 @@
             <div class="row row-cust mb-4 no-gutters second-row">
                 <div class="col-md-12 d-flex align-items-center px-md-3">
                     <div class="contact-form w-100">
-                        <h2 class="mb-4">Become a Golden City Hero?</h2><h5>Please fill the form below </h5>
-                        <form id="contactForm" method="post" action="career_mailer.php" name="google-sheet">
+                        <h2 class="mb-4">Become a Golden City Hero?</h2>
+                        <h5>Please fill the form below</h5>
+                        <form id="contactForm" method="post" action="career_mailer.php" name="career-form" enctype="multipart/form-data">
                             <div class="form-group">
-                                <input type="text" name="Name" class="form-control" id="fullName"
+                                <input type="text" name="fullName" class="form-control" id="fullName"
                                     placeholder="Your Full Name*" required>
                             </div>
                             <div class="form-group">
@@ -74,47 +75,50 @@
                                     placeholder="Your Email Id*" required>
                             </div>
                             <div class="form-group">
-                                <input type="tel" name="Mobile" class="form-control" id="mobile"
+                                <input type="tel" name="mobile" class="form-control" id="mobile"
                                     placeholder="Mobile Number*" required onfocus="showAlert()">
                                 <div id="phoneFormatAlert" style="display:none; color:#ccc;">Format: +91 XXXXXXXXXX or +852
                                     1234 5678 or +1-555-555-5555</div>
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" name="Address" id="message" rows="3"
+                                <textarea class="form-control" name="address" id="address" rows="3"
                                     placeholder="Address*" required
                                     title="Address should not exceed 200 words"></textarea>
                             </div>
                             <div class="form-group align-items-start">
-
                                 <label for="position" class="mr-2 mt-2">Select Position Interested</label>
-                                <select class="form-control custom-dropdown" name="Position" id="position" required style="max-width: 200px;">
+                                <select class="form-control custom-dropdown" name="position" id="position" required style="max-width: 200px;">
                                     <option value="" selected disabled>Select Position</option>
                                     <option value="Warehouse">Warehouse</option>
                                     <option value="Sales">Sales</option>
                                     <option value="Delivery">Delivery</option>
                                     <option value="Manager">Manager</option>
-                                </select>                              
-                        </div>
-                        <div class="form-group mt-3">
-                            <label class="mr-2 mt-2">Do you have relevant experience?</label><br/>
-                            <label class="radio-inline mr-2">
-                                <input type="radio" name="experience" id="expYes" value="yes"> Yes
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="experience" id="expNo" value="no"> No
-                            </label>
-                        </div>
-
-                        <div class="form-group mt-3" id="yearsExperience" style="display: none;">
-                            <label for="years" class="mr-2 mt-2">Please tell us about your experience?</label>
-                            <input type="text" class="form-control" id="years" name="years" placeholder="About your Experience">
-                        </div>
-
+                                </select>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label class="mr-2 mt-2">Do you have relevant experience?</label><br/>
+                                <label class="radio-inline mr-2">
+                                    <input type="radio" name="experience" id="expYes" value="yes"> Yes
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="experience" id="expNo" value="no"> No
+                                </label>
+                            </div>
+            
+                            <div class="form-group mt-3" id="yearsExperience" style="display: none;">
+                                <label for="years" class="mr-2 mt-2">Please tell us about your experience?</label>
+                                <input type="text" class="form-control" id="years" name="years" placeholder="About your Experience">
+                            </div>
+                            <div class="form-group">
+                                <input type="file" name="resume" class="form-control-file" id="resume">
+                            </div>
+            
                             <button type="submit" name="career_submit" class="btn btn-warning">SEND MESSAGE</button>
                         </form>
                     </div>
                 </div>
             </div>
+            
         </div>
 
 </div>
@@ -161,21 +165,16 @@ $(document).ready(function() {
         // Validate form fields (as before)
 
         // If form is valid, prepare data for AJAX
-        var formData = {
-            fullName: $('#fullName').val().trim(),
-            email: $('#email').val().trim(),
-            phone: $('#mobile').val().trim(),
-            message: $('#message').val().trim(),
-            position: $('#position').val(),
-            experience: $('input[name="experience"]:checked').val(),
-            years: $('#years').val().trim()
-        };
+        var formData = new FormData(this);
+        console.log(formData);
 
         // Send data to PHP script using AJAX
         $.ajax({
             type: 'POST',
             url: 'career_mailer.php',
             data: formData,
+            contentType: false, //  set content type
+            processData: false, // Prevent jQuery from processing data
             success: function(response) {
                 // Reset form after successful submission
                 $('#contactForm')[0].reset();
